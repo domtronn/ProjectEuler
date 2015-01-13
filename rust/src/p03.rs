@@ -2,14 +2,18 @@
 // What is the largest prime factor of the number 600851475143 ?
 
 fn main() {
-    println!("Result -> {}", is_prime(7));
+    println!("Result -> {}", find_largest_prime_factor(600851475143));
 }
 
-// fn find_largest_prime_factor(n:i64) {
-//     loop {
-        
-//     }
-// }
+fn find_largest_prime_factor(n:i64) -> i64 {
+    let mut l = n / 2 as i64;
+    println!("l -> {}", l);
+    loop {
+        l -= 2;
+        if is_prime(l) { break; }
+    }
+    return l;
+}
 
 fn is_prime(n:i64) -> bool {
     if n <= 3 {
@@ -17,9 +21,9 @@ fn is_prime(n:i64) -> bool {
     } else if n % 2 == 0 || n % 3 == 0 {
         return false
     } else {
-        let mut i = 5:i32;
-        while (i * i <= n) {
-            if (n % i == 0 || n % (i + 2) == 0) {
+        let mut i = 5;
+        while i * i <= n {
+            if n % i == 0 || n % (i + 2) == 0 {
                 return false;
             }
             i += 6;
