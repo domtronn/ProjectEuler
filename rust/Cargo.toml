@@ -1,0 +1,7 @@
+[package]
+name = "project_euler_rust"
+version = "0.0.1"
+authors = ["Dominic Charlesworth dgc336@gmail.com"]
+
+[[bin]]
+name = "p03"
