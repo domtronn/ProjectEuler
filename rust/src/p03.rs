@@ -6,13 +6,14 @@ fn main() {
 }
 
 fn find_largest_prime_factor(n:i64) -> i64 {
-    let mut l = n / 2 as i64;
-    println!("l -> {}", l);
-    loop {
-        l -= 2;
-        if is_prime(l) { break; }
+    let l = n as i64;
+    let (mut c, mut r) = (3, 0);
+    
+    while c * c < l {
+        c += 2;
+        if is_prime(c) && l % c == 0 { r = c; }
     }
-    return l;
+    return r;
 }
 
 fn is_prime(n:i64) -> bool {
