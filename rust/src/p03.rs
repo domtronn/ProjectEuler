@@ -8,7 +8,7 @@ fn main() {
 fn find_largest_prime_factor(n:i64) -> i64 {
     let l = n as i64;
     let (mut c, mut r) = (3, 0);
-    
+
     while c * c < l {
         c += 2;
         if is_prime(c) && l % c == 0 { r = c; }
