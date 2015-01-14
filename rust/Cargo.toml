@@ -3,5 +3,19 @@ name = "project_euler_rust"
 version = "0.0.1"
 authors = ["Dominic Charlesworth dgc336@gmail.com"]
 
+[dependencies]
+num = "*"
+
+[[bin]]
+name = "p01"
+[[bin]]
+name = "p02"
 [[bin]]
 name = "p03"
+[[bin]]
+name = "p04"
+[[bin]]
+name = "p05"
+
+[[bin]]
+name = "p15"
