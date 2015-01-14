@@ -13,7 +13,7 @@ use warnings;
 
 my $limit = 1000;
 
-print "Result -> " . (sum_divisble_by(3) + sum_divisble_by(5) - (15)) . "\n";
+print "Result -> " . (sum_divisble_by(3) + sum_divisble_by(5) - sum_divisble_by(15)) . "\n";
 
 sub sum_divisble_by {
 		my ($n) = @_;
