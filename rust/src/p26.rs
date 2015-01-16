@@ -11,7 +11,7 @@ fn calculate_longest_remainder_cycle_up_to(mut d: i32) -> i32 {
 
     loop {
         d -= 1;
-        let d_cycle_length = calculate_remainder_cycle_length(d);
+        let d_cycle_length = calculate_remainder_cycle_length(d as usize);
         if d_cycle_length > cycle_length {
             cycle_length = d_cycle_length;
         }
@@ -21,14 +21,12 @@ fn calculate_longest_remainder_cycle_up_to(mut d: i32) -> i32 {
     return d;
 }
 
-fn calculate_remainder_cycle_length(d: i32) -> i32 {
-    use std::collections::HashMap;
-
-    let mut found_digits = HashMap::new();
+fn calculate_remainder_cycle_length(d: usize) -> i32 {
+    let mut found_digits: [i32; 1000] = [0; 1000];
     let (mut r, mut pos) = (1, 0);
 
-    while !found_digits.contains_key(&r) && r != 0 {
-        found_digits.insert(r, pos);
+    while found_digits[r] == 0 && r != 0 {
+        found_digits[r] = pos;
         r *= 10; r %= d;
         pos += 1;
     }
