@@ -15,11 +15,11 @@ fn main () {
     println!("Result -> {}", sum_diagonals_of_spirals_up_to(1001));
 }
 
-fn sum_diagonals_of_spirals_up_to(n: i32) -> i32 {
-    let (mut sum, mut i) = (1, 3);
-    while i <= n {
-        sum += sum_diagonals_of_spiral(i);
-        i += 2;
+fn sum_diagonals_of_spirals_up_to(mut n: i32) -> i32 {
+    let mut sum = 1;
+    while n >= 3 {
+        sum += sum_diagonals_of_spiral(n);
+        n -= 2;
     }
 
     return sum;
