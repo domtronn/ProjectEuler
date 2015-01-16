@@ -12,39 +12,19 @@
 // What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
 
 fn main () {
-    println!("Result -> {}", sum_diagonals_of_spirals_up_to(501));
+    println!("Result -> {}", sum_diagonals_of_spirals_up_to(1001));
 }
 
-fn sum_diagonals_of_spirals_up_to(mut n: i32) -> i32 {
-    let mut sum = 0;
-    while n > 0 {
-        sum += sum_diagonals_of_spiral(n);
-        n -= 1;
+fn sum_diagonals_of_spirals_up_to(n: i32) -> i32 {
+    let (mut sum, mut i) = (1, 3);
+    while i <= n {
+        sum += sum_diagonals_of_spiral(i);
+        i += 2;
     }
 
     return sum;
 }
 
 fn sum_diagonals_of_spiral(n: i32) -> i32 {
-    let i = calculate_first_i_of_spiral(n);
-    let l = calculate_limit_of_spiral(n, i);
-    let (mut r, mut sum) = (i - 1, 0);
-
-    if n == 1 { return 1; }
-    
-    while r < l {
-        r += 2 * (n - 1);
-        sum += r;
-    }
-    return sum;
-}
-
-fn calculate_limit_of_spiral(n: i32, i: i32) -> i32 {
-    return i + ((n - 1) * 8) - 1;
-}
-
-fn calculate_first_i_of_spiral(n: i32) -> i32 {
-    if n == 1 { return 1; }
-    if n == 2 { return 2; }
-    return calculate_first_i_of_spiral(n - 1) + ((n - 2) * 8);
+    return (4 * (n * n)) - (6 * n) + 6;
 }
