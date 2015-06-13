@@ -16,6 +16,13 @@ name = "p03"
 name = "p04"
 [[bin]]
 name = "p05"
-
+[[bin]]
+name = "p06"
 [[bin]]
 name = "p15"
+[[bin]]
+name = "p18"
+[[bin]]
+name = "p26"
+[[bin]]
+name = "p28"
